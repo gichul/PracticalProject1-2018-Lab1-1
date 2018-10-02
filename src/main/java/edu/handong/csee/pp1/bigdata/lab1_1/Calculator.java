@@ -68,7 +68,7 @@ public class Calculator {
 		print("SUM:" , sum(firstIntArg, secondIntArg));
 		print("SUB:" , this.subtract(firstIntArg, secondIntArg));
 		print("*:" , multiply(firstIntArg, secondIntArg));
-		print("DV:" , divide(firstIntArg,secondIntArg));
+		print("DV:" , (int) divide(firstIntArg,secondIntArg));
 	}
 
 	
@@ -99,10 +99,20 @@ public class Calculator {
 		return first * second;
 	}
 
-	int divide(int first, int second) {
+	double divide(int first, int second) {
 		countForAnyCompution++;
 		localCount++;
-		return first / second;
+		
+		  try{
+		  		return first / second;
+		  }
+		  catch(ArithmeticException e){
+		  		System.out.println("0으로 나눌 수 없습니다.");
+		  		return Double.NaN;
+		  }
+		 
+		
+		
 	}
 
 	int mod(int first, int second) {
